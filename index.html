@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+      <title>Meals On Wheels</title>
+      <link rel="stylesheet" href="nice.css" media="screen">
+      <link rel="stylesheet" href="Home.css" media="screen">
+      <link rel="icon" href="images\logo1.png" type="image/x-icon">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', sans-serif;
+} 
+body {
+     width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+nav{
+  display: flex;
+  height: 80px;
+  width: 100%;
+  background: white;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px 0 100px;
+  flex-wrap: wrap;
+}
+nav ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+nav ul li{
+  margin: 0 5px;
+}
+nav ul li a{
+  color: black;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  font-family: -webkit-body;
+  font-weight: bold;
+}
+nav ul li a.active,
+nav ul li a:hover{
+  color: #111;
+  background: #FFF2D5;
+font-size: x-large;
+    font-family: initial;
+}
+nav .menu-btn i{
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+}
+input[type="checkbox"]{
+  display: none;
+}
+@media (max-width: 1000px){
+  nav{
+    padding: 0 40px 0 50px;
+  }
+}
+@media (max-width: 920px) {
+  nav .menu-btn i{
+    display: block;
+  }
+  #click:checked ~ .menu-btn i:before{
+    content: "\f00d";
+  }
+  nav ul{
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    background: #111;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    display: block;
+    transition: all 0.3s ease;
+  }
+  #click:checked ~ ul{
+    left: 0;
+  }
+  nav ul li{
+    width: 100%;
+    margin: 40px 0;
+  }
+  nav ul li a{
+    width: 100%;
+    margin-left: -100%;
+    display: block;
+    font-size: 20px;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  #click:checked ~ ul li a{
+    margin-left: 0px;
+  }
+  nav ul li a.active,
+  nav ul li a:hover{
+    background: none;
+    color: cyan;
+}
+}
+.content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: -1;
+  width: 100%;
+  padding: 0 30px;
+  color: #1b1b1b;
+}
+.content div{
+  font-size: 40px;
+  font-weight: 700;
+}
+div.logo {
+    color: #fff;
+    font-size: 0px;
+    font-weight: 600;
+}
+img.logo{
+filter: brightness(100%);
+}
+img.bg
+{
+filter: brightness(90%);
+}
+.footer {
+   position: inherit;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #FFF2D5;
+   min-height: 150px;
+   color: black;
+   text-align: center;
+}
+hr.border{
+border: 1px solid black;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.content .fas{
+  font-size: 1.4375rem;
+  background: #1a1a1a;
+  height: 45px;
+  width: 45px;
+  line-height: 45px;
+  text-align: center;
+  border-radius: 50%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.content .fas:hover{
+  background: #F4AE12;
+}
+.button {
+  display: inline-block;
+  border-radius: 10px;
+  background-color:#F4AE12;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  margin-top: 40px;
+  margin-left: 40px;
+  width: 220px;
+}
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.button:hover span {
+  padding-right: 25px;
+}
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.column {
+  float: right;
+  
+}
+.left {
+  width: 65%;
+  background-color:#FFF2D5;
+  margin-right: 2rem;
+}
+
+.right {
+  width: 32%;
+  ;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+  /* Float four columns side by side */
+  .column-card {
+  float: left;
+  width: 33%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row-card {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row-card:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: white;
+  min-height: 300px;
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .column-card {
+    width: 100%;
+    display: block;
+    margin: 10px 0 20px 10px;
+    min-height: 20px;
+  }
+}
+    </style>
+   </head>
+<body class="u-body u-xl-mode"> 
+     <nav>
+         <div class="logo">
+            <img class="logo" src="images\logo.png" width="100px" height="75px">
+         </div> 
+         <input type="checkbox" id="click">
+         <label for="click" class="menu-btn">
+         <i class="fas fa-bars"></i>
+         </label>
+         <ul>
+            <li><a href="aboutUs.jsp">Get Started</a></li>
+            <li><a href="register.jsp">Services</a></li>
+            <li><a href="signin.jsp">Support</a></li>
+            <li><a href="contactUs.jsp">Become a Partner</a></li>
+         </ul>
+      </nav>
+      <section class="u-clearfix u-section-3" id="sec-b820">
+        <div class="u-align-left u-clearfix u-sheet u-sheet-1">
+          <img class="u-expanded-width-sm u-expanded-width-xs u-image u-image-default u-image-1" src="images/food1.jpg" alt="" data-image-width="750" data-image-height="819">
+          <div class="u-container-style u-expanded-width-sm u-expanded-width-xs u-group u-shape-square u-group-1">
+            <div class="u-container-layout u-valign-top-xl u-container-layout-1">
+              <img class="u-expanded-width-xs u-image u-image-default u-image-4" src="images/Pink Black Paint Stroke Rectangle Border Photography Logo.jpg" alt="">
+            </div>
+          </div>
+        </div>
+      </section>
+          <div class="row">
+            <div class="left column ">
+              <p class="u-align-center u-text u-text-1" spellcheck="false"> 
+                <span style="font-weight: 200; font-size: 4.5rem; font-family: 'Dancing Script', cursive;">Sale !
+                </span><br>
+                <span style="font-weight: 100; font-size: 1.5rem; font-family: 'Times New Roman', Times, serif">Upto 20% off
+                </span><br>
+                <span style="font-size: 4rem; font-weight: bold;" >Trendy Furniture</span>
+              </p>
+            </div>
+            <div class="right column">
+              <img src="images/carousel1.jpg" alt="" style="height: 400px; margin-left: 3rem;" >
+              <button class="button" style="vertical-align:middle;margin-top: -150px;margin-left: 750px"><span>
+                BUY NOW</a></button>
+            </div>
+          </div>
+          <div>
+            <p style="font-family: 'Dancing Script', cursive; font-size: 3.5rem; font-weight: regular; text-align: center;">Why shop with delivero ?</p>
+            <p class="u-align-center u-text u-text-1" spellcheck="false"> 
+            <span style="font-size: 1.5rem; " >We've got best deals for you !</span>
+            </p>
+          </div>
+          <div class="part-3">
+            <div class="row-card">
+              <div class="column-card">
+                <div class="card"> 
+                  <img src="images/card-1.jpg">
+                </div>
+              </div>
+              <div class="column-card">
+                <div class="card">
+                  <img src="images/card-2.jpg"></img>
+                </div>
+              </div>
+              <div class="column-card">
+                <div class="card">
+                  <img src="images/card-3.jpg"></img>
+                </div>
+              </div>
+            </div>
+          </div>
+           <p style="text-align: center;">
+            <br>
+          <img src="images/banner2.jpg" style=" min-width: 1250px;" >
+          </p>
+          <div>
+            <p style="font-family: 'Dancing Script', cursive; font-size: 3.5rem; font-weight: regular; text-align: center;"><br>Join India's favourite delivery partner</p>
+            <p class="u-align-center u-text u-text-1" spellcheck="false"> 
+            <span style="font-size: 1.5rem; " >Trusted by restaurants and takeaways all over the world.</span>
+            </p>
+          </div>
+    <section class="u-clearfix u-section-3" id="sec-b820">
+      <div class="u-align-left u-clearfix u-sheet u-sheet-1">
+        <img class="u-expanded-width-sm u-expanded-width-xs u-image u-image-default u-image-1" src="images/portfolio.jpg" alt="" data-image-width="750" data-image-height="819">
+        <div class="u-container-style u-expanded-width-sm u-expanded-width-xs u-group u-shape-rectangle u-group-1">
+          <div class="u-container-layout u-valign-top-xl u-container-layout-1">
+            <p class="u-align-center u-text u-text-1" spellcheck="false">
+              <span style="font-size: 1.5rem;">
+                <span style="font-size: 40px; font-family: 'Dancing Script', cursive ;">&nbsp; &nbsp; &nbsp;bubbleblogs</span>
+                <br>
+              </span>
+              <br>Delivero is one of India’s leading courier companies, serving over 36,000 pin codes across the country and over 220 countries globally. They have a track record of delivering products on time and at a reasonable price. Their pricing is entirely based on weight, and you can use their price finder tool to estimate your logistical costs. When it comes to delivery, they are very reliable and efficient. Delivero services are time-sensitive, and they always maintain regulatory permissions to avoid any possibility of errors or blunders. Their domestic network is vast, and they have six flights of their own to carry freights to different parts of India.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+      <div style="clear: left;"/><br>
+      <div class="footer">
+      <hr class="border">
+      </div>
+</body>
+</html>
